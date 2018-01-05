@@ -60,10 +60,11 @@
                 </li>
 
                 <li class="xn-openable">
-                    <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Level 2</span></a>
-                    <ul>                            
-                        <li><a href=""><span class="fa fa-plus"></span>Part 1</a></li>                            
-                        <li><a href=""><span class="fa fa-list"></span>Part 2</a></li>                           
+                    <a href="#"><span class="fa fa-group"></span> <span class="xn-text">User Management</span></a>
+                    <ul>       
+                        <li><a href=""><span class="fa fa-legal"></span>User Role</a></li>                         
+                        <li><a href=""><span class="fa fa-plus"></span>Create Admin</a></li>                            
+                        <li><a href=""><span class="fa fa-list"></span>Admin List</a></li>                           
                     </ul>
                 </li>
 
@@ -237,13 +238,13 @@
     <!-- END PLUGINS -->
 
     <!-- START THIS PAGE PLUGINS-->
-    <script type='text/javascript' src='{{asset('admin/js/plugins/icheck/icheck.min.js')}}'></script>
-    <script type='text/javascript' src='{{asset('admin/js/plugins/bootstrap/bootstrap-file-input.js')}}'></script>
-    <script type='text/javascript' src='{{asset('admin/js/plugins/summernote/summernote.js')}}'></script>
+    <script type='text/javascript' src="{{asset('admin/js/plugins/icheck/icheck.min.js')}}"></script>
+    <script type='text/javascript' src="{{asset('admin/js/plugins/bootstrap/bootstrap-file-input.js')}}"></script>
+    <script type='text/javascript' src="{{asset('admin/js/plugins/summernote/summernote.js')}}"></script>
     <script type="text/javascript" src="{{asset('admin/js/plugins/bootstrap/bootstrap-datepicker.js') }}"></script> 
     <script type="text/javascript" src="{{asset('admin/js/plugins/bootstrap/bootstrap-select.js') }}"></script>
 
-    <script type='text/javascript' src='{{asset('admin/js/plugins/datatables/jquery.dataTables.min.js')}}'></script>
+    <script type='text/javascript' src="{{asset('admin/js/plugins/datatables/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('admin/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
     <!-- END THIS PAGE PLUGINS-->
 
