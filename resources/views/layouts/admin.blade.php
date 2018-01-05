@@ -62,7 +62,7 @@
                 <li class="xn-openable">
                     <a href="#"><span class="fa fa-group"></span> <span class="xn-text">User Management</span></a>
                     <ul>       
-                        <li><a href=""><span class="fa fa-legal"></span>User Role</a></li>                         
+                        <li><a href="{{route('user-role.index')}}"><span class="fa fa-legal"></span>User Role</a></li>                         
                         <li><a href=""><span class="fa fa-plus"></span>Create Admin</a></li>                            
                         <li><a href=""><span class="fa fa-list"></span>Admin List</a></li>                           
                     </ul>

@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'verification_token' => User::generateVerificationToken(),
             //..........just for demo
-            'rule_id' => 1,
+            'role_id' => 1,
         ]);
     }
 }

@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('verified')->default(User::$UNVERIFIED_USER);
             $table->string('verification_token',60);
-            $table->integer('rule_id')->index();
+            $table->integer('role_id')->index();
             $table->boolean('is_active')->default(User::$INACTIVE_USER);
             $table->boolean('is_admin')->default(User::$REGULAR_USER);
             $table->tinyInteger('status')->default(0);

@@ -43,3 +43,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//.........ADMIN AREA..........
+
+Route::group(['prefix'=>'admin'],function(){
+    Route::resource('user-role','Admin\Role\UserRoleController',['except'=>['create','show']]);
+});
