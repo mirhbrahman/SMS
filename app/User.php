@@ -11,14 +11,14 @@ class User extends Authenticatable
     protected $primaryKey = 'user_id';
     public $incrementing = false;
 
-    //.......Static field for default field
-    public static $VERIFIED_USER = true;
-    public static $UNVERIFIED_USER = false;
-    public static $ACTIVE_USER = true;
-    public static $INACTIVE_USER = false;
-    public static $ADMIN_USER = true;
-    public static $REGULAR_USER = false;
-   
+    //.......const value for default field
+    const VERIFIED_USER = true;
+    const UNVERIFIED_USER = false;
+    const ACTIVE_USER = true;
+    const INACTIVE_USER = false;
+    const ADMIN_USER = true;
+    const REGULAR_USER = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -45,5 +45,25 @@ class User extends Authenticatable
     public static function generateVerificationToken()
     {
         return str_random(60);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo('App\Models\Admin\UserRole', 'role_id');
+    }
+
+    public function isVerified()
+    {
+        return $this->verified == self::VERIFIED_USER;
+    }
+
+    public function isActive()
+    {
+        return $this->is_active == self::ACTIVE_USER;
+    }
+
+    public function isAdmin()
+    {
+        return $this->is_admin == self::ADMIN_USER;
     }
 }

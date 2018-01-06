@@ -47,5 +47,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //.........ADMIN AREA..........
 
 Route::group(['prefix'=>'admin'],function(){
-    Route::resource('user-role','Admin\Role\UserRoleController',['except'=>['create','show']]);
+    Route::resource('user-role','Admin\Role\UserRolesController',['except'=>['create','show']]);
+    Route::resource('users','Admin\User\AdminUsersController');
+    Route::get('users/verify/{token}','Admin\User\AdminUsersController@verifyByAdmin')->name('user.verifyByAdmin');
 });

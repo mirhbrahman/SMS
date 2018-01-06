@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Session;
 
-class UserRoleController extends Controller
+class UserRolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class UserRoleController extends Controller
 
         $role = new UserRole();
         $role->name = strtolower($request->name);
-        
+
         if ($role->save()) {
             Session::flash('success', 'User role create successfull.');
         }
@@ -71,7 +71,7 @@ class UserRoleController extends Controller
         ]);
 
         $userRole->name = strtolower($request->name);
-        
+
         if ($userRole->save()) {
             Session::flash('success', 'User role update successfull.');
         }

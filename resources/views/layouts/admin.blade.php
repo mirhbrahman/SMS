@@ -61,10 +61,10 @@
 
                 <li class="xn-openable">
                     <a href="#"><span class="fa fa-group"></span> <span class="xn-text">User Management</span></a>
-                    <ul>       
-                        <li><a href="{{route('user-role.index')}}"><span class="fa fa-legal"></span>User Role</a></li>                         
-                        <li><a href=""><span class="fa fa-plus"></span>Create Admin</a></li>                            
-                        <li><a href=""><span class="fa fa-list"></span>Admin List</a></li>                           
+                    <ul>
+                        <li><a href="{{route('user-role.index')}}"><span class="fa fa-legal"></span>User Role</a></li>
+                        <li><a href="{{route('users.create')}}"><span class="fa fa-plus"></span>Create User</a></li>
+                        <li><a href="{{route('users.index')}}"><span class="fa fa-list"></span>User List</a></li>                           
                     </ul>
                 </li>
 
@@ -73,14 +73,14 @@
                     <ul>
                         <li>
                             <a href=""><span class="fa fa-file-o"></span>Slide 1</a>
-                        </li>                            
+                        </li>
                         <li class="xn-openable">
                             <a href="#"><span class="fa fa-files-o"></span>Slide 2</a>
-                            <ul>                            
-                                <li><a href=""><span class="fa fa-plus"></span>Part 1</a></li>                            
-                                <li><a href=""><span class="fa fa-list"></span>Part 2</a></li>                           
+                            <ul>
+                                <li><a href=""><span class="fa fa-plus"></span>Part 1</a></li>
+                                <li><a href=""><span class="fa fa-list"></span>Part 2</a></li>
                             </ul>
-                        </li>                            
+                        </li>
                     </ul>
                 </li>
 
@@ -89,20 +89,20 @@
                     <ul>
                         <li>
                             <a href=""><span class="fa fa-file-o"></span>Slide 1</a>
-                        </li>                            
+                        </li>
                         <li class="xn-openable">
                             <a href="#"><span class="fa fa-files-o"></span>Slide 2</a>
-                            <ul>                            
-                                <li><a href=""><span class="fa fa-file-o"></span>Page 1</a></li>                            
+                            <ul>
+                                <li><a href=""><span class="fa fa-file-o"></span>Page 1</a></li>
                                 <li class="xn-openable">
                                     <a href="#"><span class="fa fa-files-o"></span>Page 2</a>
-                                    <ul>                            
-                                        <li><a href=""><span class="fa fa-plus"></span>Part 1</a></li>                            
-                                        <li><a href=""><span class="fa fa-list"></span>Part 2</a></li>                           
+                                    <ul>
+                                        <li><a href=""><span class="fa fa-plus"></span>Part 1</a></li>
+                                        <li><a href=""><span class="fa fa-list"></span>Part 2</a></li>
                                     </ul>
-                                </li>                           
+                                </li>
                             </ul>
-                        </li>                            
+                        </li>
                     </ul>
                 </li>
 
@@ -123,15 +123,15 @@
 
                 <li class="xn-openable">
                     <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Design</span></a>
-                    <ul>                            
-                        <li><a href="{{ route('design.create') }}"><span class="fa fa-plus"></span>create</a></li>                            
-                        <li><a href="{{ route('design.index') }}"><span class="fa fa-list"></span>list</a></li>                           
+                    <ul>
+                        <li><a href="{{ route('design.create') }}"><span class="fa fa-plus"></span>create</a></li>
+                        <li><a href="{{ route('design.index') }}"><span class="fa fa-list"></span>list</a></li>
                     </ul>
                 </li>
 
                 <li class="xn-openable">
                     <a href="#"><span class="fa fa-sitemap"></span> <span class="xn-text">Navigation Levels</span></a>
-                    <ul>                            
+                    <ul>
                         <li class="xn-openable">
                             <a href="#">Second Level</a>
                             <ul>
@@ -147,7 +147,7 @@
                                     </ul>
                                 </li>
                             </ul>
-                        </li>                            
+                        </li>
                     </ul>
                 </li>
 
@@ -241,7 +241,7 @@
     <script type='text/javascript' src="{{asset('admin/js/plugins/icheck/icheck.min.js')}}"></script>
     <script type='text/javascript' src="{{asset('admin/js/plugins/bootstrap/bootstrap-file-input.js')}}"></script>
     <script type='text/javascript' src="{{asset('admin/js/plugins/summernote/summernote.js')}}"></script>
-    <script type="text/javascript" src="{{asset('admin/js/plugins/bootstrap/bootstrap-datepicker.js') }}"></script> 
+    <script type="text/javascript" src="{{asset('admin/js/plugins/bootstrap/bootstrap-datepicker.js') }}"></script>
     <script type="text/javascript" src="{{asset('admin/js/plugins/bootstrap/bootstrap-select.js') }}"></script>
 
     <script type='text/javascript' src="{{asset('admin/js/plugins/datatables/jquery.dataTables.min.js')}}"></script>
