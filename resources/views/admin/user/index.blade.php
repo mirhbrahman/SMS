@@ -45,13 +45,13 @@
                                                 <div class="pull-left">
                                                     &nbsp;&nbsp;
                                                     @if ($user->isAdmin())
-                                                        <a href="#" class="btn btn-success">Make Reguler</a>
+                                                        <a href="{{route('user.makeRegular',$user->user_id)}}" class="btn btn-success">Make Reguler</a>
                                                         @else
-                                                            <a href="#" class="btn btn-danger">Make Admin</a>
+                                                            <a href="{{route('user.makeAdmin',$user->user_id)}}" class="btn btn-danger">Make Admin</a>
                                                     @endif
                                                 </div>
                                                 <div class="pull-left">
-                                                    &nbsp;&nbsp;<a href="#" class="btn btn-info">Edit</a>
+                                                    &nbsp;&nbsp;<a href="{{route('users.edit',$user->user_id)}}" class="btn btn-info">Edit</a>
                                                 </div>
                                             </div>
 

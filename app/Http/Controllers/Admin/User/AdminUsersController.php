@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin\User;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Admin\UserRole;
 use Session;
+use Auth;
 
 class AdminUsersController extends Controller
 {
@@ -79,9 +81,12 @@ class AdminUsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user = User::where('user_id',$id)->first();
+        return view('admin.user.edit')
+                ->with('user', $user)
+                ->with('roles', UserRole::pluck('name','id')->all());
     }
 
     /**
@@ -91,11 +96,65 @@ class AdminUsersController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $user_id)
     {
-        //
+        $user = User::where('user_id',$user_id)->first();
+        $this->validate($request,[
+            'name' => 'required|min:2|max:100',
+            'email' => 'required|email|max:255|unique:users,email,'.$user->user_id.',user_id',
+            'role_id' => 'required|numeric',
+        ],[
+            'role_id.required' => 'The user role field is required.'
+        ]);
+
+        if ($request->has('name')) {
+            if ($request->name != $user->name) {
+                $user->name = $request->name;
+            }
+        }
+
+        if ($request->has('email')) {
+            if ($request->email != $user->email) {
+                $user->email = $request->email;
+            }
+        }
+
+        if ($request->has('role_id')) {
+            if ($request->role_id != $user->role_id) {
+                $user->role_id = $request->role_id;
+            }
+        }
+
+        if ($user->isClean()) {
+            Session::flash('info', 'You need to change information for update.');
+            return redirect()->back();
+        }else{
+            $user->save();
+            Session::flash('success', 'User update successfull.');
+        }
+        return redirect()->route('users.index');
     }
 
+
+    public function changePassword(Request $request, $user_id)
+    {
+        $user = User::where('user_id',$user_id)->first();
+
+        $validator = Validator::make($request->all(),[
+            'password' => 'required|min:6|max:50|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('info',$validator->errors()->all()[0]);
+            return redirect()->back();
+        }else {
+            $user->password = bcrypt($request->password);
+            $user->save();
+            Session::flash('success', 'Password change successfull.');
+        }
+
+        return redirect()->route('users.index');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -115,7 +174,27 @@ class AdminUsersController extends Controller
         $user->verification_token = null;
         $user->is_active = User::ACTIVE_USER;
         $user->save();
-        
+
+        return redirect()->back();
+    }
+
+    public function makeAdmin($user_id)
+    {
+        $user = User::where('user_id',$user_id)->first();
+
+        $user->is_admin = User::ADMIN_USER;
+        $user->save();
+
+        return redirect()->back();
+    }
+
+    public function makeRegular($user_id)
+    {
+        $user = User::where('user_id',$user_id)->first();
+
+        $user->is_admin = User::REGULAR_USER;
+        $user->save();
+
         return redirect()->back();
     }
 }
